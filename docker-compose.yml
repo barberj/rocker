@@ -1,11 +1,15 @@
 redis:
   image: redis
 
+cache:
+  image: memcached
+
 web:
   build: .
   command: rails s -b 0.0.0.0 -p 3000
   links:
    - redis
+   - cache
   environment:
    DEEP: purple
   ports:
