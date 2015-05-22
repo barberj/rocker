@@ -1,0 +1,12 @@
+redis:
+  image: redis
+
+web:
+  build: .
+  command: rails s -b 0.0.0.0 -p 3000
+  links:
+   - redis
+  environment:
+   DEEP: purple
+  ports:
+   - "3000:3000"
