@@ -1,15 +1,16 @@
 redis:
   image: redis
 
-cache:
+memcached:
   image: memcached
 
 web:
   build: .
   command: rails s -b 0.0.0.0 -p 3000
+  hostname: test.rockerweb.com
   links:
    - redis
-   - cache
+   - memcached
   environment:
    DEEP: purple
   ports:

@@ -10,5 +10,6 @@ RUN mkdir /src
 ADD . /src
 WORKDIR /src
 EXPOSE 3000
+ENV ORANGE stuff
 
 RUN bundle exec rake assets:precompile --trace
