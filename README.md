@@ -10,11 +10,13 @@ or can be built using Dockerfile found in this repository.
 
 Experiments with links
 
-`docker build -t rocker_web .`
-`docker run -d -P --hostname rockerweb.com --name web rocker_web rails s -b 0.0.0.0 -p 3000`
-
-`docker run -it --link web:web busybox`
 ```
+docker build -t rocker_web .
+docker run -d -P --hostname rockerweb.com --name web rocker_web rails s -b 0.0.0.0 -p 3000
+```
+
+```
+docker run -it --link web:web busybox
 # env
 WEB_ENV_RUBY_VERSION=2.2.2
 HOSTNAME=e3fa7e3726de
@@ -36,8 +38,8 @@ WEB_ENV_GEM_HOME=/usr/local/bundle
 WEB_PORT_3000_TCP=tcp://172.17.0.26:3000
 ```
 
-`docker run -it --hostname test.rockerweb.com  rocker_web sh`
 ```
+docker run -it --hostname test.rockerweb.com  rocker_web sh
 # env
 RUBY_MAJOR=2.2
 HOSTNAME=test.rockerweb.com
