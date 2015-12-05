@@ -6,7 +6,7 @@ memcached:
 
 web:
   build: .
-  command: rails s -b 0.0.0.0 -p 3000
+  command: envconsul -consul 192.168.99.100:8500 -prefix melody env && rails s -b 0.0.0.0 -p 3000
   hostname: test.rockerweb.com
   links:
    - redis
