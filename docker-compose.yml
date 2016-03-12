@@ -6,7 +6,6 @@ memcached:
 
 web:
   build: .
-  command: envconsul -consul 192.168.99.100:8500 -prefix melody env && rails s -b 0.0.0.0 -p 3000
   hostname: test.rockerweb.com
   links:
    - redis
@@ -14,4 +13,4 @@ web:
   environment:
    DEEP: purple
   ports:
-   - "3000:3000"
+   - "4000:3000"

@@ -16,3 +16,5 @@ EXPOSE 3000
 ENV ORANGE stuff
 
 RUN bundle exec rake assets:precompile --trace
+
+CMD envconsul -consul 192.168.99.100:8500 -prefix melody env rails s -b 0.0.0.0 -p 3000
